@@ -1,0 +1,28 @@
+<section>
+    <div class="padding-global">
+        <div class="w-layout-blockcontainer container small w-container">
+            <div class="faq-wrapper">
+                <div data-w-id="91f2a621-a900-bda0-4e4b-f4d51b12c4ae"  class="faq-heading">
+                    <div class="heading-5">{{ pimcore_input('faqHeader', { placeholder : 'FAQ' }) }}</div>
+                </div>
+                <div class="faq-component w-dyn-list">
+                    <div role="list" class="faq-list w-dyn-items">
+                            {% for i in pimcore_iterate_block(pimcore_block('faqblock', { class : 'row11'})) %}
+                                {{
+                                pimcore_renderlet('faqList', {
+                                className : 'Faq',
+                                editmode: editmode,
+                                type: 'object',
+                                controller: 'App\\Controller\\FaqController::faqListAction',
+                                title: 'Drag Faq here',
+                                height: 'auto',
+                                width: '100%'
+                                })
+                                }}
+                            {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

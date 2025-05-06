@@ -1,0 +1,28 @@
+{% if faq %}
+    <div role="listitem" class="faq-hover w-dyn-item">
+        <div class="faq-item">
+            <div class="faq-top">
+                <div class="faq-title-wrapper">
+                    <div>
+                        {{ faq.question }}
+                    </div>
+                </div>
+                <div class="faq-action-wrapper">
+                    <img loading="lazy" src="{{ asset('static/images/FAQ-Arrow.svg') }}" alt="Arrow" class="arrow">
+                </div>
+            </div>
+            <div class="faq-bottom">
+                <div class="faq-bottom-content">
+                    {{ faq.answer|raw }}
+                    <p id="w-node-_166a32a4-df69-feaf-899a-25aced6d2465-202d6a97" ></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% else %}
+
+    <div class="empty-state w-dyn-empty">
+        <div>No items found.</div>
+    </div>
+{% endif %}

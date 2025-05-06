@@ -1,0 +1,37 @@
+{# templates/partials/navbar.html.twig #}
+
+{# get the document which should be used to start in navigation | default home #}
+{% set navStartNode = document.getProperty('navigation_root') %}
+
+{% if not navStartNode is instanceof('\\Pimcore\\Model\\Document') %}
+    {% set navStartNode = pimcore_document(1) %}
+{% endif %}
+{% set menuRenderer = pimcore_nav_renderer('menu') %}
+{% set mainNavigation =  app_navigation_data_links(document, navStartNode) %}
+
+<div data-animation="default" data-collapse="medium" data-duration="400" data-easing="ease" data-easing2="ease" role="banner" class="navbar w-nav">
+    <div class="padding-global">
+        <div data-w-id="f9581d51-d09d-0761-a4c6-2b5106d5820a" class="container w-container">
+            <div class="navbar-component">
+                <a href="{{ navStartNode }}" data-w-id="f9581d51-d09d-0761-a4c6-2b5106d5820c" aria-current="page" class="brand w-nav-brand w--current">
+                    <img loading="lazy" src="{{ asset('static/images/Logo-Spacekit.svg') }} " alt="Logo" class="logo-navbar">
+                </a>
+                <div class="right-navbar-content">
+                    <div class="nav-menu-wrap">
+                        <div class="menu-button w-nav-button">
+                            <div class="menu-icon w-icon-nav-menu"></div>
+                        </div>
+                    </div>
+                    <nav role="navigation" class="nav-menu w-nav-menu">
+                        {{ menuRenderer.renderPartial(mainNavigation, 'navigations/renderMenu.html.twig', {
+                            maxDepth: 2,
+                            depth:0,
+                        }) | raw }}
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="overlay-navbar"></div>
+</div>
+

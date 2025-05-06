@@ -1,0 +1,26 @@
+{% macro render(pages, currentDocument) %}
+  {% import _self as nav %}
+
+  {% for page in pages %}
+    {% if page is instanceof('\\Pimcore\\Model\\Document\\Page') 
+          and page.isPublished() 
+          and not page.getProperty('navigation_hidden') %}
+
+      {% set isActive = (page.getId() == currentDocument.getId()) %}
+
+      {% if page.getTitle() == "Contact Us" %}
+        <div class="button-border">
+          <a href="{{ page.getFullPath() }}" class="button-navbar margin-left w-inline-block {% if isActive %}w--current{% endif %}">
+            <div class="text-size-small">{{ page.getTitle() }}</div>
+          </a>
+        </div>
+      {% else %}
+        <a href="{{ page.getFullPath() }}" class="nav-link w-inline-block {% if isActive %}w--current{% endif %}">
+          <div>{{ page.getTitle() }}</div>
+        </a>
+      {% endif %}
+
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+

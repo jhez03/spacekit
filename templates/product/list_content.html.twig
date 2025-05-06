@@ -1,0 +1,58 @@
+<section>
+    <div class="padding-global">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="products-component">
+          <div data-w-id="4cdce911-e160-1d66-11cf-019fa4ba0da1"  class="products-main-header">
+            <div class="tag-marquee">
+              <div style="-webkit-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="tag">
+                <div class="elipse"></div>
+                <div class="text-size-small caps">Your gateway to the stars</div>
+              </div>
+              <div style="-webkit-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="tag">
+                <div class="elipse"></div>
+                <div class="text-size-small caps">Your gateway to the stars</div>
+              </div>
+              <div style="-webkit-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="tag">
+                <div class="elipse"></div>
+                <div class="text-size-small caps">Your gateway to the stars</div>
+              </div>
+            </div>
+            <div class="heading-component">
+              <div class="max-width-85ch">
+                <div class="heading-4">Explore the space kits designed to inspire curiosity and wonder.</div>
+              </div>
+            </div>
+          </div>
+          <div class="products-card-wrapper w-dyn-list">
+            <div role="list" class="products-cards w-dyn-items">
+                {% if products is not empty %}
+                    {% for product in products %}
+                        <div role="listitem" class="w-dyn-item">
+                            <a data-w-id="268b7445-26d7-b467-1465-47fe39538bf5" href="{{ app_link(product) }}" class="product-link w-inline-block">
+                                <div class="product-card-image">
+                                    <img src="{{ product.image.getThumbnail('grid')}}" alt="{{ product.name }}" loading="lazy">
+                                </div>
+                                <div class="product-card-info">
+                                    <div class="info">
+                                        <div class="text-size-small text-weight-medium caps gI">{{ product.name }}</div>
+                                        <div class="text-size-small caps gI">{{ product.productClasses }}</div>
+                                    </div>
+                                    <div class="text-size-small text-weight-medium gI">{{ product.price|format_currency('USD') }}</div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                    {% endfor %}
+                    
+                {% else %}
+                    <div class="empty-state w-dyn-empty">
+                        <div>No items found.</div>
+                    </div>
+                    
+                {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

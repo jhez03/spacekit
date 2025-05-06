@@ -1,0 +1,10 @@
+{# templates/page/home.html.twig #}
+{% extends "base.html.twig" %}
+{% block content %}
+{{ pimcore_areablock('mainContent', {
+    'allowed': ['hero','product-teaser','faq', 'hero-teaser', 'sticky-wrapper', 'features', 'product-teaser'],
+    'areaTitle': 'Main Content Blocks'
+}) }}
+
+{% endblock %}
+

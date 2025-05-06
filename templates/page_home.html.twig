@@ -1,0 +1,115 @@
+{% extends 'page_index.html.twig' %}
+
+{% block title} New welcome {% endlblock %}
+{% block CONTENT_MID %}
+  <!-- CAROUSEL START -->
+  <div id="myCarousel" class="carousel slide mb-0" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>Example headline.</h1>
+            <p>Some representative placeholder content for the first slide of the carousel.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Another example headline.</h1>
+            <p>Some representative placeholder content for the second slide of the carousel.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/></svg>
+
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>One more for good measure.</h1>
+            <p>Some representative placeholder content for the third slide of this carousel.</p>
+            <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <!-- CAROUSEL END -->
+
+  <!-- BLOG CARDS START -->
+  <div class="container">
+    <div class="row">
+      <div class="col-12 p-3 m-3">
+        <h2 class="text-center"><b>Latest posts</b></h2>
+      </div>
+      <div class="col-4">
+        <div class="card mb-3">
+          <img src="https://via.placeholder.com/414x227" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Blog title</h5>
+            <p class="card-text">Blog short description..</p>
+            <p class="card-text"><small class="text-muted">Posted: 3 mins ago</small></p>
+            <a href="blog-single.html" class="btn btn-primary stretched-link">Read more</a>
+            <hr>
+            <span class="pe-2">Tags:</span>
+            <span class="badge bg-secondary">Pimcore</span>
+            <span class="badge bg-secondary">Blog</span>
+            <span class="badge bg-secondary">Example</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card mb-3">
+          <img src="https://via.placeholder.com/414x227" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Blog title</h5>
+            <p class="card-text">Blog short description..</p>
+            <p class="card-text"><small class="text-muted">Posted: 3 mins ago</small></p>
+            <a href="blog-single.html" class="btn btn-primary stretched-link">Read more</a>
+            <hr>
+            <span class="pe-2">Tags:</span>
+            <span class="badge bg-secondary">Pimcore</span>
+            <span class="badge bg-secondary">Blog</span>
+            <span class="badge bg-secondary">Example</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="card mb-3">
+          <img src="https://via.placeholder.com/414x227" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Blog title</h5>
+            <p class="card-text">Blog short description..</p>
+            <p class="card-text"><small class="text-muted">Posted: 3 mins ago</small></p>
+            <a href="blog-single.html" class="btn btn-primary stretched-link">Read more</a>
+            <hr>
+            <span class="pe-2">Tags:</span>
+            <span class="badge bg-secondary">Pimcore</span>
+            <span class="badge bg-secondary">Blog</span>
+            <span class="badge bg-secondary">Example</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- BLOG CARDS END -->
+{% endblock %}

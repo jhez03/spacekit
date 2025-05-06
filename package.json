@@ -1,0 +1,32 @@
+{
+  "devDependencies": {
+    "@symfony/webpack-encore": "^5.1.0",
+    "@tailwindcss/postcss": "^4.1.4",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "postcss-loader": "^8.1.1",
+    "webpack": "^5.99.6",
+    "webpack-notifier": "^1.15.0"
+  },
+  "scripts": {
+    "dev-server": "encore dev-server",
+    "dev": "encore dev",
+    "watch": "encore dev --watch",
+    "build": "encore production --progress"
+  },
+  "dependencies": {
+    "@symfony/stimulus-bridge": "^4.0.1",
+    "tailwindcss": "^4.1.4",
+    "webpack-cli": "^5.1.4"
+  },
+  "name": "pimcore-blog",
+  "description": "This skeleton should be used by experienced Pimcore developers for starting a new project from the ground up.  If you are new to Pimcore, it's better to start with our demo package, listed below 😉",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

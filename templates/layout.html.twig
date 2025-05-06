@@ -1,0 +1,24 @@
+{# templates/layout.html.twig #}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Space Kit{% endblock %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {# Styles #}
+    <link href="{{ asset('/static/css/normalize.css') }}" rel="stylesheet">
+    <link href="{{ asset('/static/css/webflow.css') }}" rel="stylesheet">
+    <link href="{{ asset('/static/css/jeswins-trendy-site.css') }}" rel="stylesheet">
+
+    {# Favicon #}
+    <link rel="icon" href="{{ asset('/static/images/favicon.jpg') }}" type="image/x-icon">
+</head>
+<body>
+    {% block body %}{% endblock %}
+
+    {# Scripts #}
+    <script src="{{ asset('/static/js/webflow.js') }}"></script>
+</body>
+</html>

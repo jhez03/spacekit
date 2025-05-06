@@ -1,0 +1,71 @@
+
+<section>
+    <div class="padding-global">
+        <div class="w-layout-blockcontainer container w-container">
+            <div class="product-wrapper">
+                <div class="product-component">
+                    <div data-w-id="0fdec84b-bc8c-1ec1-8d04-b73e60de1366" data-wf-id="[&quot;0fdec84b-bc8c-1ec1-8d04-b73e60de1366&quot;]" class="product-image">
+                        <a href="#" data-w-id="3a1b083a-dee2-b376-d8b9-10de3505b61e" data-wf-id="[&quot;3a1b083a-dee2-b376-d8b9-10de3505b61e&quot;]" class="lightbox-link w-inline-block w-lightbox" aria-label="open lightbox" aria-haspopup="dialog">
+                            <img src="{{ product.image.getThumbnail('grid') }}" loading="lazy" alt="" class="" data-wf-id="" data-w-id="3a1b083a-dee2-b376-d8b9-10de3505b61f">
+                            <script type="application/json" class="w-json">{
+  "items": [
+    {
+      "url": "{{ product.image.getFullPath() }}",
+      "type": "image"
+    }
+  ],
+  "group": "Product Images"
+}</script>
+                        </a>
+                        <div class="lightbox-wrapper">
+                            {% set lightboxItems = [] %}
+                            {% if product.gallery is not empty %}
+                                {% for item in product.gallery %}
+                                    <a href="#" class="multi-images w-inline-block  w-lightbox" aria-label="open lightbox" aria-haspopup="dialog">
+                                        <img src="{{ item.image.getThumbnail('product-detail-small')}}" loading="lazy" width="Auto" alt="" class="">
+                            <script type="application/json" class="w-json">{
+  "items": [
+    {
+      "url": "{{ item.image.getFullPath() }}",
+      "type": "image"
+    }
+  ],
+  "group": "Product Images"
+}</script>
+
+                                    </a>
+
+
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="mask-frame"></div>
+                    </div>
+                    <div class="product-info">
+                        <div data-w-id="0fdec84b-bc8c-1ec1-8d04-b73e60de136a"  class="product-title">
+                            <div class="heading-5 ">{{ product.productHeading }}</div>
+                        </div>
+                        <div data-w-id="0fdec84b-bc8c-1ec1-8d04-b73e60de136d"  class="product-description">
+                            <div class="">{{ product.description }}</div>
+                            <div class="info-tag">
+                                <div class="opacity-60">
+                                    <div class="text-size-small caps "></div>
+                                </div>
+                                <div class="price-tag">
+                                    <div class="opacity-50">
+                                        <div class="text-size-small caps">starts at</div>
+                                    </div>
+                                    <div class="">{{ product.price|format_currency('USD') }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-w-id="f1ca395d-c989-51a4-6cc3-cb492ab727c2" class="product-button">
+                            <div class="text-weight-bold caps">Buy now</div>
+                            <div style="-webkit-transform:translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0rem, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="arrow-wrapper"><img src="{{ asset('static/images/Arrow-Product.svg') }}" loading="lazy" alt="Arrow" class="arrow"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

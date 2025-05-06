@@ -1,0 +1,43 @@
+<section>
+    <div class="padding-global">
+        <div class="w-layout-blockcontainer container w-container">
+            <div class="footer-component">
+                <div data-w-id="840cf11d-6f08-20b7-2ae0-7b73f27382ee" class="footer-heading">
+                    <img loading="lazy" src="{{ asset('static/images/Logo-Spacekit.svg') }}" alt="Logo" class="logo-footer"></div>
+                <div data-w-id="840cf11d-6f08-20b7-2ae0-7b73f27382f0" class="w-layout-grid footer-grid">
+                    {% for i in pimcore_iterate_block(pimcore_block('footerBlock')) %}
+                        <div class="footer-grid-wrap">
+                            <div class="footer-text-size text-weight-medium">{{ pimcore_input('footerHead', { placeholder : 'Footer Head' }) }}</div>
+                            {% for i in pimcore_iterate_block(pimcore_block('footerBlockLink')) %}
+                                <div class="footer-links-wrapper">
+                                    {{ pimcore_link('footerLink', { class : 'footer-link' }) }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+                <div data-w-id="840cf11d-6f08-20b7-2ae0-7b73f2738313" class="footer-social-wrapper">
+                    <a href="#" class="footer-social w-inline-block">
+                        <img loading="lazy" src="{{ asset('static/images/Group.svg') }}" alt="Logo" class="icon-embed"></a>
+                    <a href="#" class="footer-social w-inline-block">
+                        <img loading="lazy" src="{{ asset('static/images/logo-fb-simple-2.svg') }}" alt="Logo" class="icon-embed"></a>
+                    <a href="#" class="footer-social w-inline-block">
+                        <img loading="lazy" src="{{ asset('static/images/logo-instagram-1.svg') }}" alt="Logo" class="icon-embed"></a>
+                    <a href="#" class="footer-social w-inline-block">
+                        <img loading="lazy" src="{{ asset('static/images/logo-github-1.svg') }}" alt="Logo" class="icon-embed"></a>
+                </div>
+                <div data-w-id="840cf11d-6f08-20b7-2ae0-7b73f273831c" class="footer-links-wrapper">
+                    <div class="credits-wrapper">
+                        <p>Copyright ©</p>
+                        <a href="#" target="_blank" class="credits w-inline-block">
+                            <p class="paragraph"> Developed by <span class="text-color-black">Jeswin Libay</span></p>
+                        </a>
+                        <a href="#" target="_blank" class="credits w-inline-block">
+                            <p class="paragraph">Powered by <span class="text-color-black">Pimcore</span></p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

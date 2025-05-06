@@ -1,0 +1,47 @@
+<section>
+    <div class="padding-global">
+        <div class="w-layout-blockcontainer container medium w-container">
+            <div class="products-wrapper">
+                <div data-w-id="b549090b-fb57-780a-009d-ed71c2b6c8c2" style="opacity:0" class="products-header">
+                    <div class="products-heading">
+                        <div class="flex-horizontal">
+                            <div class="icon-wrapper"><img src="{{ asset('static/images/Cross.svg') }}" loading="lazy" alt="Icon"></div>
+                            <div class="text-size-large text-weight-medium caps">{{ pimcore_input('ourProducts', { placeholder : 'Our Products' }) }}</div>
+                        </div>
+                        <div class="opacity-60">
+                            <div>{{ pimcore_input('allCollection' , { placeholder : 'All Collection' }) }}</div>
+                        </div>
+                    </div>
+                    <div class="button-wrapper">
+                        {% set shopNow = pimcore_link('shopNowLink', { noText : true , class : 'black-button w-inline-block' }) %}
+                        {% if editmode %}
+                            {{ shopNow|raw }}
+                        {% else %}
+                            <a href="{{ shopNow.getHref() ?: '#' }}" target="{{ shopNow.getTarget() }}" class="black-button w-inline-block">
+                                <div class="text-weight-medium caps">{{ shopNow.getText() ?: '#' }}</div>
+                            </a> 
+                        {% endif %}
+                    </div>
+                </div>
+            
+                <div class="products-card-wrapper w-dyn-list">
+                    <div role="list" class="products-cards w-dyn-items">
+                        {% for i in pimcore_iterate_block(pimcore_block('teaserblock',{class:'row11'})) %}
+                            {{
+                            pimcore_renderlet('productTeaser', {
+                            type: 'object',
+                            className: 'Product',
+                            editmode: editmode,
+                            controller: 'App\\Controller\\ProductController::productTeaserAction',
+                            title: 'Drag a product here',
+                            height : 'auto',
+                            width: '100%'
+                            })
+                            }}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>

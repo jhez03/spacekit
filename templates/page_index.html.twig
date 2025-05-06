@@ -1,0 +1,21 @@
+<!-- page_index.html -->
+<html>
+<head>
+    <title>Base Template</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Website</h1>
+    </header>
+    {# page_home.html.twig #}
+    <!-- The content block to be overridden in child templates -->
+    {% block CONTENT_MID %}
+        <p>This is the base content in page_index.html.</p>
+    {% endblock %}
+
+    <footer>
+        <p>Footer content here.</p>
+    </footer>
+</body>
+</html>
+

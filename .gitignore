@@ -1,0 +1,40 @@
+# docker and local dev tools
+Dockerfile
+dockerfile
+.docker/
+**/Dockerfile*
+**/dockerfile*
+# Dependencies
+vendor/
+/node_modules/
+/dist/
+
+# Symfony / Pimcore
+var/
+!.gitkeep
+.pimcore
+
+# Pimcore generated
+var/assets/
+var/backups/
+var/config/generated/
+var/tmp/
+public/var/
+public/build/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Ignore IDE and system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+#Docker
+.docker/.env
+
+./config/pimcore/google-api-private-key.json.example
+API_key

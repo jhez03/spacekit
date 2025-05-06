@@ -1,0 +1,71 @@
+<section>
+    <div class="sticky-wrapper">
+        <div class="sticky-component">
+            {{ pimcore_image('stickyComponent', {
+                thumbnail: 'sticky-component',
+                imgAttributes: {
+                    loading : 'lazy',
+                    alt : 'Product Images'
+                }
+            }) }}
+        </div>
+        <div class="sticky-content">
+            <div class="sticky-big-image">
+            {{ pimcore_image('stickyBigImage', {
+                thumbnail: 'sticky-big-image',
+                imgAttributes: {
+                    loading : 'lazy',
+                    alt : 'Product Images'
+                }
+            }) }}
+            </div>
+            <div class="sticky-text">
+                <div class="text-weight-medium caps regular-vw-small">{{ pimcore_input('stickyHeading1Intro', { placeholder : 'Sticky Heading Intro' }) }}</div>
+                <div class="content max-width-34vw">
+                    <div class="heading-vw">{{ pimcore_input('stickyHeading1Title', { placeholder : 'Sticky Heading Title' }) }}</div>
+                    <div class="sticky-paragraph">
+                        <div class="regular-vw">{{ pimcore_wysiwyg('stickyHeading1Para1', { width : '500' }) }}</div>
+                        <div class="regular-vw">{{ pimcore_wysiwyg('stickyHeading1Para2', { width: '500' }) }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sticky-small-image">
+            {{ pimcore_image('stickySmallImage', {
+                thumbnail: 'sticky-small-image',
+                imgattributes: {
+                    loading : 'lazy',
+                    alt : 'product images'
+                }
+            }) }}
+            </div>
+            <div data-w-id="d6eb4b71-80eb-f603-35f2-731c895e4ef6" class="sticky-medium-image">
+            {{ pimcore_image('stickyMediumImage', {
+                thumbnail: 'sticky-medium-image',
+                imgAttributes: {
+                    loading : 'lazy',
+                    alt : 'Product Images'
+                }
+            }) }}
+            </div>
+            <div class="sticky-text">
+                <div class="text-weight-medium caps regular-vw-small">{{ pimcore_input('stickyHeading2Intro', { placeholder : 'Sticky Heading Intro' }) }}</div>
+                <div class="content">
+                    <div class="heading-vw">{{ pimcore_input('stickyHeading2Title', { placeholder : 'Sticky Heading Title' })}}</div>
+                    <div class="sticky-paragraph">
+                        <div class="regular-vw">{{ pimcore_wysiwyg('stickyHeading2Para1', { width : '500' }) }}</div>
+                        <div class="regular-vw">{{ pimcore_wysiwyg('stickyHeading2Para2', { width : '500' }) }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sticky-small-image">
+            {{ pimcore_image('stickySmallBottomImage', {
+                thumbnail: 'sticky-small-image',
+                imgattributes: {
+                    loading : 'lazy',
+                    alt : 'product images'
+                }
+            }) }}
+            </div>
+        </div>
+    </div>
+</section>

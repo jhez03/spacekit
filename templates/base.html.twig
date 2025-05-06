@@ -1,0 +1,27 @@
+{# templates/base.html.twig #}
+<!DOCTYPE html>
+<html data-wf-page="680f62ca4afbbe42202d6a97" data-wf-site="680f62c74afbbe42202d55c5" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Space Kit Site{% endblock %}</title>
+    {# Include CSS assets #}
+    <link rel="stylesheet" href="{{ asset('static/css/normalize.css') }}">
+    <link rel="stylesheet" href="{{ asset('static/css/webflow.css') }}">
+    <link rel="stylesheet" href="{{ asset('static/css/jeswins-trendy-site-03d043.webflow.css') }}">
+  </head>
+  <body>
+      {% if not editmode %}
+
+        {% include 'partials/navbar.html.twig' %}
+      {% endif %}
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+    {% include 'partials/footer.html.twig' %}
+    {# Include JS at bottom #}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="{{ asset('static/js/webflow.js') }}"></script>
+  </body>
+</html>
+

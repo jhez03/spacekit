@@ -1,0 +1,115 @@
+<section>
+    <div class="padding-global">
+        <div class="w-layout-blockcontainer container w-container">
+            <div id="bento" class="bento-wrapper">
+                <div class="bento-header">
+                    <div data-w-id="6bd37292-5282-e855-ba53-dbeb6480588b" style="opacity:0" class="{{ editmode ?: 'tag-marquee' }}">
+                        <div style="-webkit-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="tag">
+                            <div class="elipse"></div>
+                            <div class="text-size-small caps">{{ pimcore_input('marqueeTagline', { placeholder : "Design for your everyday adventures"}) }}</div>
+                        </div>
+                        <div style="-webkit-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="tag">
+                            <div class="elipse"></div>
+                            <div class="text-size-small caps">{{ pimcore_input('marqueeTagLine2', { placeholder : "Design for your everyday adventures" }) }}</div>
+                        </div>
+                        <div style="-webkit-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="tag">
+                            <div class="elipse"></div>
+                            <div class="text-size-small caps">{{ pimcore_input('marqueeTagLine3', { placeholder : "Design for your everyday adventures" }) }}</div>
+                        </div>
+                    </div>
+                    <div data-w-id="2f423519-54a1-f6cf-f436-adda19db444f" style="opacity:0" class="heading-component">
+                        <div class="max-width-80ch">
+                            <div class="heading-4">{{ pimcore_input('bentoSectionHeading', { placeholder : 'Heading' }) }}</div>
+                        </div>
+                        <div class="{% if not editmode %}max-width-45ch{% endif %}">
+                            <div>{{ pimcore_wysiwyg('bentoSectionDescription', { placeholder : "Bento Section Description", width : 1000 }) }}</div>
+                        </div>
+                    </div>
+                </div>
+                {% set bentoTopRightLink = pimcore_link('bentoTopRightLink', { 'noText' : true, }) %}
+                <div class="bento-component">
+                    <div class="bento-row">
+                        {% set bentoTopLeftAsset = pimcore_image('bentoTopLeftImage') %}
+                        {% if editmode %}
+                            <div class="card-small">
+                                {{ pimcore_image('bentoTopLeftImage', {
+                                thumbnail : 'bento-teaser',
+                                imgAttributes : { class : 'image' }
+                                }) }}
+                            </div>
+                        {% else %}
+                            <div class="card-small">
+                                {% if bentoTopLeftAsset and bentoTopLeftAsset.getImage() %}
+                                    <img src="{{ pimcore_image('bentoTopLeftImage').getImage().getFullPath() }}" loading="lazy"  alt="Products Images" class="image">
+                                {% endif %}
+                            </div>
+                        {% endif %}
+                        <a href="{{ bentoTopRightLink.getHref() ?: '#' }}" class="card-big w-inline-block">
+                            <div class="card-big-content">
+                                <div class="max-width-60ch">
+                                    <div class="heading-6">{{ pimcore_input('bentoTopRightText', { placeholder : "Bentor Top Right Text" }) }}</div>
+                                </div>
+                                <div class="secondary-button">
+                                    <div class="text-size-small text-weight-medium">{{ pimcore_input('bentoTopRightSubText', { placeholder : "Bento Top Right Sub Text" }) }}</div>
+                                    <div class="arrow-wrapper"><img src="{{ asset('static/images/Arrow.svg') }}" loading="lazy" alt="Arrow"></div>
+                                    {% if editmode %}
+                                    {{ bentoTopRightLink|raw }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="card-image">
+                                {{ pimcore_image('bentoTopRightImage', {
+                                thumbnail: 'bento-teaser-topright',
+                                }) }}
+                            </div>
+                        </a>
+                    </div>
+                {% set bentoBottomLeftLink = pimcore_link('bentoBottomLeftLink', { 'noText' : true, }) %}
+                    <div class="bento-row">
+                        <a href="{{ bentoBottomLeftLink.getHref() ?: '#' }}" class="card-big w-inline-block">
+                            <div class="card-big-content">
+                                <div class="max-width-40ch">
+                                    <div class="heading-6">{{ pimcore_input("bentoBottomLeftHeading" , { placeholder : "Bento Bottom Left Heading" }) }}</div>
+                                </div>
+                                <div class="secondary-button">
+                                    <div class="text-size-small text-weight-medium">{{ pimcore_input("bentoBottomLeftButtonText", { placeholder : "Bento Bottom Left Button Text" }) }}</div>
+                                    <div class="arrow-wrapper"><img src="{{ asset('static/images/Arrow.svg') }}" loading="lazy" alt="Arrow"></div>
+                                    {% if editmode %}
+                                        
+                                        {{ bentoBottomLeftLink|raw }}
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="card-image">
+                                {{ pimcore_image('bentoBottomLeftImage', {
+                                thumbnail: 'bento-teaser-bottomleft',
+                                }) }}
+                            </div>
+                        </a>
+                        {% set bentoBottonRightLink = pimcore_link('bentoBottonRightLink', { 'noText' : true, }) %}
+                        <div class="card-small">
+                            <div class="relative">
+                                <a href="{{ bentoBottonRightLink.getHref() ?: '#' }}" class="primary-button w-inline-block">
+                                    <div class="text-weight-medium caps">{{ pimcore_input('bentoBottomRightLink', { placeholder : "Bento Bottom Right Link" }) }}</div>
+                                    <div class="arrow-wrapper"><img src="{{ asset('static/images/Arrow.svg') }}" loading="lazy" alt="Arrow"></div>
+                                    {% if editmode %}
+                                        
+                                        {{ bentoBottonRightLink|raw }}
+                                    {% endif %}
+                                </a>
+                            </div>
+                            {% if not editmode %}
+                               <div class="card-overlay"></div> 
+                            {% endif %}
+                            <div class="card-image">
+                                {{ pimcore_image('bentoBottomRightImage', {
+                                thumbnail: 'bento-teaser-bottomright',
+                                }) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

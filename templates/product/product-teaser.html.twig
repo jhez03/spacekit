@@ -1,0 +1,27 @@
+{% if product and product.image %}
+        <div role="listitem" class="w-dyn-item">
+            <a data-w-id="bffe6e9c-77c6-200f-a7ba-923b878b4277" href="{{app_link(product)}}" class="product-link w-inline-block">
+                <div class="product-card-image">
+                    {% if product.image %}
+                        <img src="{{ product.image.thumbnail('grid') }}" loading="lazy" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1.09, 1.09, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1.09, 1.09, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1.09, 1.09, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1.09, 1.09, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" alt="" class="image">
+                    {% else %}
+                        <img src="https://d3e54v103j8qbb.cloudfront.net/plugins/Basic/assets/placeholder.60f9b1840c.svg" loading="lazy" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1.09, 1.09, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1.09, 1.09, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1.09, 1.09, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1.09, 1.09, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" alt="" class="image w-dyn-bind-empty">
+                    {% endif %}
+                    <div style="height:100%" class="mask-frame"></div>
+                </div>
+                <div class="product-card-info">
+                    <div class="info">
+                        <div class="text-size-small text-weight-medium caps">{{ product.name }}</div>
+                        <div class="text-size-small caps">{{ product.productClasses }}</div>
+                    </div>
+                    <div class="text-size-small text-weight-medium">{{ product.price|format_currency('USD')}}</div>
+                </div>
+            </a>
+        </div>
+    
+{% else %}
+    <div class="empty-state w-dyn-empty">
+        <div>No items found.</div>
+    </div>
+    
+{% endif %}

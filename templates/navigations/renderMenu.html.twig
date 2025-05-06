@@ -1,0 +1,18 @@
+{# templates/navigations/renderMenu.html.twig #}
+{% set maxDepth = maxDepth is defined ? maxDepth : 2 %}
+{% set currentDepth = depth is defined ? depth : 0 %}
+{% if currentDepth < maxDepth %}
+  {% for page in pages %}
+      {% if page.label == "Contact Us" %}
+        <div class="button-border">
+          <a href="{{ page.uri }}" class="button-navbar margin-left w-inline-block">
+            <div class="text-size-small">{{ page.label }}</div>
+          </a>
+        </div>
+      {% else %}
+            <div>{{ pimcore_nav_renderer('menu').htmlify(page) | raw }}</div>
+
+      {% endif %}
+
+  {% endfor %}
+{% endif %}

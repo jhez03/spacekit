@@ -1,0 +1,95 @@
+<section>
+    <div class="hero-wrapper">
+        <div class="hero-heading">
+            {% set heroTextLink = pimcore_link('heroTextLink', { noText : true }) %}
+                <a href="{{ heroTextLink.getHref() ?: '#' }}" style="-webkit-transform:translate3d(0, 10vh, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 10vh, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 10vh, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 10vh, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="read-more-tag w-inline-block">
+            <div class="text-size-small text-weight-bold">{{ pimcore_input('heroTextLink1', { placeholder : 'More Products' }) }}</div>
+            <div class="vertical-line-tag"></div>
+            <div class="read-more-button">
+                <div class="opacity-50">
+                    <div class="text-size-small text-weight-bold">{{ heroTextLink.getText() }}</div>
+                </div><img loading="lazy" src="{{ asset('static/images/Arrow.svg') }}" alt="Arrow" class="arrow">
+                {% if editmode %}
+                    {{ heroTextLink|raw }}
+                {% endif %}
+            </div>
+                </a>
+                <div data-w-id="51364c1f-c2c4-184d-f696-20039fbb7860" style="-webkit-transform:translate3d(0, 10vh, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 10vh, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 10vh, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 10vh, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="heading-3 text-weight-light">{{ pimcore_input('heroTextHeadline', { placeholder : 'Hero Headline' }) }}</div>
+        </div>
+        <a href="#bento" data-w-id="5866cdfd-451c-e48d-60d2-e80e9bf58d58" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1.2, 1.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1.2, 1.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1.2, 1.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1.2, 1.2, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="button-hero w-inline-block">
+            <div class="button-image">
+                <img loading="lazy" src="{{ asset('static/images/CIRCLE.svg') }}" alt="Circle BG">
+            </div>
+            <div style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0deg) skew(0, 0)" class="circular-text">
+                <img loading="lazy" src="{{ asset('static/images/Circular-Text.svg') }}" alt="Circle Text">
+            </div>
+            <div class="button-arrow">
+                <div class="hero-arrow-wrapper">
+                    <img style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" loading="lazy" alt="Arrow" src="{{ asset('static/images/Button-Arrow.svg') }}" class="arrow">
+                    <img style="-webkit-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" loading="lazy" alt="Arrow" src="{{ asset('static/images/Button-Arrow.svg') }}" class="arrow">
+                </div>
+            </div>
+        </a>
+        {% set heroBackground =  pimcore_image('heroBackground', { 
+        title: "Drag Image Here",
+        thumbnail : 'hero-bg',
+        })
+        %}
+        <div class="{{ editmode ?: 'hero-grid' }}">
+            <a id="w-node-_42e8932e-6c04-a7d4-f0c1-b4cf70a9f10b-202d6a97" style="opacity:0;-webkit-transform:translate3d(0, 0, 0) scale3d(3, 3, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(3, 3, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(3, 3, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(3, 3, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" href="/shop" class="hover-relative w-inline-block">
+                <div class="circle-hover">
+                    <div class="circle-hero"></div>
+                </div>
+                <div class="hero-hover">
+                    <div class="hover-content">
+                        <div class="text-weight-medium">The Voyager</div>
+                        <div>$26.00 USD</div>
+                    </div>
+                    <div class="arrow-hero"><img src="{{ asset('static/images/Diagonal-Arrow.svg') }}" loading="lazy" alt="Arrow" class="arrow second"><img src="{{ asset('static/images/Diagonal-Arrow.svg') }}" loading="lazy" alt="Arrow" class="arrow"></div>
+                </div>
+            </a>
+            <a id="w-node-ef7e6b0d-be93-adff-4060-9d901676e40c-202d6a97" style="opacity:0;-webkit-transform:translate3d(0, 0, 0) scale3d(3, 3, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(3, 3, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(3, 3, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(3, 3, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" href="/shop" class="hover-relative w-inline-block">
+                <div class="circle-hover">
+                    <div class="circle-hero"></div>
+                </div>
+                <div class="hero-hover">
+                    <div class="hover-content">
+                        <div class="text-weight-medium">Urban Nomad</div>
+                        <div>$26.00 USD</div>
+                    </div>
+                    <div class="arrow-hero"><img src="{{ asset('static/images/Diagonal-Arrow.svg') }}" loading="lazy" alt="Arrow" class="arrow second"><img src="{{ asset('static/images/Diagonal-Arrow.svg') }}" loading="lazy" alt="Arrow" class="arrow"></div>
+                </div>
+            </a>
+            <a id="w-node-e5f29151-518e-2cc5-830b-93494d1384d7-202d6a97" style="opacity:0;-webkit-transform:translate3d(0, 0, 0) scale3d(3, 3, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(3, 3, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(3, 3, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(3, 3, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" href="/shop" class="hover-relative w-inline-block">
+                <div class="circle-hover">
+                    <div class="circle-hero"></div>
+                </div>
+                <div class="hero-hover">
+                    <div class="hover-content">
+                        <div class="text-weight-medium">Metro Pack</div>
+                        <div>$26.00 USD</div>
+                    </div>
+                    <div class="arrow-hero"><img src="{{ asset('static/images/Diagonal-Arrow.svg') }}" loading="lazy" alt="Arrow" class="arrow second"><img src="{{ asset('static/images/Diagonal-Arrow.svg') }}" loading="lazy" alt="Arrow" class="arrow"></div>
+                </div>
+            </a>
+            <a id="w-node-_017e8081-75d8-24cb-ae60-e4c7ae005f3d-202d6a97" style="opacity:0;-webkit-transform:translate3d(0, 0, 0) scale3d(3, 3, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(3, 3, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(3, 3, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(3, 3, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" href="/shop" class="hover-relative w-inline-block">
+                <div class="circle-hover">
+                    <div class="circle-hero"></div>
+                </div>
+                <div class="hero-hover">
+                    <div class="hover-content">
+                        <div class="text-weight-medium">Nomad Pro</div>
+                        <div>$26.00 USD</div>
+                    </div>
+                    <div class="arrow-hero"><img src="{{ asset('static/images/Diagonal-Arrow.svg') }}" loading="lazy" alt="Arrow" class="arrow second"><img src="{{ asset('static/images/Diagonal-Arrow.svg') }}" loading="lazy" alt="Arrow" class="arrow"></div>
+                </div>
+            </a>
+        </div>
+        <div class="overlay-mobile"></div>
+        <div class="hero-background">
+            {{ 
+            heroBackground|raw
+            }} 
+        </div>
+    </div>
+</section>
