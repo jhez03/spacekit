@@ -2,23 +2,28 @@ services:
     redis:
         image: redis:alpine
         command: [ redis-server, --maxmemory 128mb, --maxmemory-policy volatile-lru, --save "" ]
+        labels:
+            - "traefik.enable=false"
 
     rabbitmq:
         image: rabbitmq:alpine
         volumes:
             - pimcore-rabbitmq:/var/lib/rabbitmq/
+        labels:
+            - "traefik.enable=false"
 
     db:
         image: mariadb:10.11
         working_dir: /application
         command: [ mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_general_ci, --innodb-file-per-table=1 ]
         volumes:
+            - ./schema/:/docker-entrypoint-initdb.d
             - pimcore-database:/var/lib/mysql
         environment:
-            - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-            - MYSQL_DATABASE=${MYSQL_ROOT_DATABASE}
-            - MYSQL_USER=${MYSQL_PIMCORE_USER}
-            - MYSQL_PASSWORD=${MYSQL_PIMCORE_PASSWORD}
+            - MYSQL_ROOT_PASSWORD=ROOT
+            - MYSQL_DATABASE=pimcore
+            - MYSQL_USER=pimcore
+            - MYSQL_PASSWORD=pimcore
         healthcheck:
             # The service is considered healthy when:
             # - connection to pimcore db can be established, and
@@ -28,16 +33,26 @@ services:
             retries: 6
             start_period: 1m
             timeout: 3s
+        networks:
+                - pimnet
 
     nginx:
         image: nginx:stable-alpine
-        ports:
-            - "8080:80"
+        container_name: pimcore
         volumes:
-            - .:/var/www/html:ro
+            - .:/var/www/html
             - ./.docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
         depends_on:
             - php
+        labels:
+          - "traefik.enable=true"
+          - "traefik.http.routers.pimcore.rule=Host(`pimcore.localhost`)"
+          - "traefik.http.routers.pimcore.entrypoints=websecure"
+          - "traefik.http.routers.pimcore.tls.certresolver=letsencrypt"
+          - "traefik.docker.network=proxy"
+        networks:
+                - pimnet 
+                - proxy
 
     php:
         user: '1000:1000' # set to your uid:gid
@@ -47,17 +62,20 @@ services:
             PHP_IDE_CONFIG: serverName=localhost
             # Feed installer configuration via ENV variables.
             # See: https://pimcore.com/docs/pimcore/current/Development_Documentation/Getting_Started/Advanced_Installation_Topics.html#page_Advanced-Installation-Topics
-            PIMCORE_INSTALL_MYSQL_USERNAME: pimcore
-            PIMCORE_INSTALL_MYSQL_PASSWORD: pimcore
+            PIMCORE_INSTALL_MYSQL_USERNAME: "${MYSQL_USER}"
+            PIMCORE_INSTALL_MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
             PIMCORE_INSTALL_MYSQL_PORT: 3306
             PIMCORE_INSTALL_MYSQL_HOST_SOCKET: db
-            PIMCORE_INSTALL_MYSQL_DATABASE: pimcore
+            PIMCORE_INSTALL_MYSQL_DATABASE: "${MYSQL_DATABASE}"
         depends_on:
             db:
                 condition: service_healthy
         volumes:
             - .:/var/www/html
+            - ./.docker/docker-entrypoint.sh:/var/www/html/.docker/docker-entrypoint.sh:ro
             - ./.docker/messenger.yaml:/var/www/html/config/packages/messenger.yaml:ro
+        networks:
+                - pimnet
 
     supervisord:
         user: '1000:1000' # set to your uid:gid
@@ -103,3 +121,7 @@ volumes:
     pimcore-test-database:
     pimcore-test-var:
     pimcore-test-public-var:
+networks:
+    pimnet:
+    proxy:
+        external: true
