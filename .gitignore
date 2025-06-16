@@ -13,6 +13,7 @@ vendor/
 var/
 !.gitkeep
 .pimcore
+.github/
 
 # Pimcore generated
 var/assets/
